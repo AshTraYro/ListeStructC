@@ -7,6 +7,7 @@
 #include "DoublyLinkedList.h"
 #include "CircularLinkedList.h"
 #include "CircularDoublyLinkedList.h"
+#include "StackList.h"
 
 
 int main()
@@ -122,6 +123,9 @@ int main()
     init_circular_linked_list(list_type_circular_linked_list);
     circular_doubly_linked_list* list_type_circular_doubly_linked_list = malloc(sizeof(circular_doubly_linked_list));
     init_circular_doubly_linked_list(list_type_circular_doubly_linked_list);
+    stack_list* list_type_stack_list = malloc(sizeof(stack_list));
+    init_stack_list(list_type_stack_list);
+
     mainmenu:
     while(1)
     {
@@ -130,6 +134,7 @@ int main()
             "\n\t<<IF YOU WANT TO HAVE FUN WITH DOUBLY LINKED LIST - type: DLL>>"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH CIRCULAR LINKED LIST - type: CLL>>"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH CIRCULAR DOUBLY LINKED LIST - type: CDLL>>"
+            "\n\t<<IF YOU WANT TO HAVE FUN WITH STACK LIST - type: SL>>"
             "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
             "\n\t<<<<WHAT DO YOU WISH TO DO NEXT? >>>> ");
         char command[64];
@@ -160,6 +165,11 @@ int main()
         {
             goto Circular_Doubly_Linked_List;
         }
+
+        if (strcmp(command, "SL") == 0)
+        {
+            goto Stack_List;
+        }
     }
 
     Linked_List:
@@ -173,10 +183,16 @@ int main()
             "\n\t<<SHOW DIMENSION (NUMBER OF ELEMENTS) OF THE LIST - type: Dimension"
             "\n\t<<EMPTY THE LIST (WILL RESULT A INITIALIZED LIST - type: Delete>>"
             "\n\t<<IF YOU WANT TO GO BACK TO MAIN MENU WITH LISTS - type: MainMenu>>"
+            "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
             "\n\t<<<<WHAT DO YOU WISH TO DO WITH THE LIST? >>>> ");
         char command[64];
         fgets(command, sizeof(command), stdin);
         command[strcspn(command, "\n")] = 0;
+
+        if (strcmp(command, "Quit") == 0)
+        {
+            goto Quit_Program;
+        }
 
         if (strcmp(command, "MainMenu") == 0)
         {
@@ -213,7 +229,8 @@ int main()
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
             add_nth_elem_linked_list(list_type_linked_list, poz, nume);
-
+            if (poz >= 0)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE LIST\n", nume);
         }
 
         if (strcmp(command, "RemoveNode") == 0)
@@ -225,7 +242,8 @@ int main()
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_ll* removed = remove_node_linked_list(list_type_linked_list, poz);
-
+            if (removed)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
             free(removed);
             removed = NULL;
         }
@@ -252,10 +270,16 @@ Doubly_Linked_List:
             "\n\t<<SHOW DIMENSION (NUMBER OF ELEMENTS) OF THE LIST - type: Dimension"
             "\n\t<<EMPTY THE LIST (WILL RESULT A INITIALIZED LIST - type: Delete>>"
             "\n\t<<IF YOU WANT TO GO BACK TO MAIN MENU WITH LISTS - type: MainMenu>>"
+            "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
             "\n\t<<<<WHAT DO YOU WISH TO DO WITH THE LIST? >>>> ");
         char command[64];
         fgets(command, sizeof(command), stdin);
         command[strcspn(command, "\n")] = 0;
+
+        if (strcmp(command, "Quit") == 0)
+        {
+            goto Quit_Program;
+        }
 
         if (strcmp(command, "MainMenu") == 0)
         {
@@ -292,7 +316,8 @@ Doubly_Linked_List:
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
             add_nth_elem_doubly_linked_list(list_type_doubly_linked_list, poz, nume);
-
+            if (poz >= 0)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE LIST\n", nume);
         }
 
         if (strcmp(command, "RemoveNode") == 0)
@@ -304,7 +329,8 @@ Doubly_Linked_List:
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_dll* removed = remove_node_doubly_linked_list(list_type_doubly_linked_list, poz);
-
+            if (removed)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
             free(removed);
             removed = NULL;
         }
@@ -331,10 +357,16 @@ Circular_Linked_List:
             "\n\t<<SHOW DIMENSION (NUMBER OF ELEMENTS) OF THE LIST - type: Dimension"
             "\n\t<<EMPTY THE LIST (WILL RESULT A INITIALIZED LIST - type: Delete>>"
             "\n\t<<IF YOU WANT TO GO BACK TO MAIN MENU WITH LISTS - type: MainMenu>>"
+            "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
             "\n\t<<<<WHAT DO YOU WISH TO DO WITH THE LIST? >>>> ");
         char command[64];
         fgets(command, sizeof(command), stdin);
         command[strcspn(command, "\n")] = 0;
+
+        if (strcmp(command, "Quit") == 0)
+        {
+            goto Quit_Program;
+        }
 
         if (strcmp(command, "MainMenu") == 0)
         {
@@ -371,7 +403,8 @@ Circular_Linked_List:
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
             add_nth_elem_circular_linked_list(list_type_circular_linked_list, poz, nume);
-
+            if (poz >= 0)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE LIST\n", nume);
         }
 
         if (strcmp(command, "RemoveNode") == 0)
@@ -383,7 +416,8 @@ Circular_Linked_List:
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_cll* removed = remove_node_circular_linked_list(list_type_circular_linked_list, poz);
-
+            if (removed)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
             free(removed);
             removed = NULL;
         }
@@ -410,10 +444,16 @@ Circular_Doubly_Linked_List:
             "\n\t<<SHOW DIMENSION (NUMBER OF ELEMENTS) OF THE LIST - type: Dimension"
             "\n\t<<EMPTY THE LIST (WILL RESULT A INITIALIZED LIST - type: Delete>>"
             "\n\t<<IF YOU WANT TO GO BACK TO MAIN MENU WITH LISTS - type: MainMenu>>"
+            "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
             "\n\t<<<<WHAT DO YOU WISH TO DO WITH THE LIST? >>>> ");
         char command[64];
         fgets(command, sizeof(command), stdin);
         command[strcspn(command, "\n")] = 0;
+
+        if (strcmp(command, "Quit") == 0)
+        {
+            goto Quit_Program;
+        }
 
         if (strcmp(command, "MainMenu") == 0)
         {
@@ -450,7 +490,8 @@ Circular_Doubly_Linked_List:
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
             add_nth_elem_circular_doubly_linked_list(list_type_circular_doubly_linked_list, poz, nume);
-
+            if (poz >= 0)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE LIST\n", nume);
         }
 
         if (strcmp(command, "RemoveNode") == 0)
@@ -462,7 +503,8 @@ Circular_Doubly_Linked_List:
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_cdll* removed = remove_node_circular_doubly_linked_list(list_type_circular_doubly_linked_list, poz);
-
+            if (removed)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
             free(removed);
             removed = NULL;
         }
@@ -477,6 +519,87 @@ Circular_Doubly_Linked_List:
             free_circular_doubly_linked_list(list_type_circular_doubly_linked_list);
         }
     }
+
+Stack_List:
+    while (1)
+    {
+        printf("\n\nYOU CAN DO THE FOLLOWING OPERATIONS WITH THE STACK LIST:"
+            "\n\t<<CREATE THE LIST - type: Create>>"
+            "\n\t<<PUSH A NEW NODE INTO THE STACK - LAST ELEMENT INSERTED WILL BE THE HEAD OF THE LIST (1ST ELEMENT FROM LIST) - type: Push>>"
+            "\n\t<POP A NODE FROM THE STACK - LAST ELEMENT INSERTED WILL BE THE HEAD OF THE LIST - WE REMOVE THE HEAD AND 2ND ELEMENT BECOME THE HEAD  - type: Pop>>"
+            "\n\t<<SHOW THE CONTENT OF THE LIST - type: Print>>"
+            "\n\t<<SHOW DIMENSION (NUMBER OF ELEMENTS) OF THE LIST - type: Dimension"
+            "\n\t<<EMPTY THE LIST WILL RESULT A INITIALIZED LIST - type: Delete>>"
+            "\n\t<<TO SEE THE 1ST ELEMENT FROM THE LIST - type: Peek>>"
+            "\n\t<<IF YOU WANT TO GO BACK TO MAIN MENU WITH LISTS - type: MainMenu>>"
+            "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
+            "\n\t<<<<WHAT DO YOU WISH TO DO WITH THE LIST? >>>> ");
+        char command[64];
+        fgets(command, sizeof(command), stdin);
+        command[strcspn(command, "\n")] = 0;
+
+        if (strcmp(command, "Quit") == 0)
+        {
+            goto Quit_Program;
+        }
+
+        if (strcmp(command, "MainMenu") == 0)
+        {
+            free_stack_list(list_type_stack_list);
+            free(list_type_stack_list);
+            list_type_stack_list = NULL;
+            goto mainmenu;
+        }
+
+        if (strcmp(command, "Create") == 0)
+        {
+            free_stack_list(list_type_stack_list);
+            free(list_type_stack_list);
+            list_type_stack_list = NULL;
+            list_type_stack_list = create_stack_list();
+        }
+
+        if (strcmp(command, "Print") == 0)
+        {
+            print_stack_list(list_type_stack_list);
+        }
+
+        if (strcmp(command, "Push") == 0)
+        {
+            char nume[32];
+            printf("\nENTER THE NAME FOR THE NEW PERSON FROM THE LIST: ");
+            //scanf("%d", &varsta);
+            fgets(nume, sizeof nume, stdin);
+            nume[strcspn(nume, "\n")] = 0;
+            push_stack_list(list_type_stack_list, nume);
+            printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE LIST\n", nume);
+        }
+
+        if (strcmp(command, "Pop") == 0)
+        {
+            node_sl* removed = pop_stack_list(list_type_stack_list);
+            if (removed)
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
+            free(removed);
+            removed = NULL;
+        }
+
+        if (strcmp(command, "Dimension") == 0)
+        {
+            printf("\nNUMBER OF THE PERSON FROM THE LIST IS: %d", size_stack_list(list_type_stack_list));
+        }
+
+        if (strcmp(command, "Delete") == 0)
+        {
+            free_stack_list(list_type_stack_list);
+        }
+
+        if (strcmp(command, "Peek") == 0)
+        {
+            printf("\nThe 1ST PERSON IN THE LIST IS %s.", list_type_stack_list->head->name);
+        }
+    }
+
 
 Quit_Program:
     if (list_type_linked_list != NULL)
@@ -505,6 +628,13 @@ Quit_Program:
         free_circular_doubly_linked_list(list_type_circular_doubly_linked_list);
         free(list_type_circular_doubly_linked_list);
         list_type_circular_doubly_linked_list = NULL;
+    }
+
+    if (list_type_stack_list != NULL)
+    {
+        free_stack_list(list_type_stack_list);
+        free(list_type_stack_list);
+        list_type_stack_list = NULL;
     }
     
     _CrtDumpMemoryLeaks();
