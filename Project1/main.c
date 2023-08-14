@@ -596,7 +596,14 @@ Stack_List:
 
         if (strcmp(command, "Peek") == 0)
         {
-            printf("\nThe 1ST PERSON IN THE LIST IS %s.", list_type_stack_list->head->name);
+            if (list_type_stack_list->head->name == NULL || list_type_stack_list == NULL)
+            {
+                printf("\nTHE LIST IS EMPTY.");
+            }
+            else
+            {
+                printf("\nThe 1ST PERSON IN THE LIST IS %s.", list_type_stack_list->head->name);
+            }
         }
     }
 
