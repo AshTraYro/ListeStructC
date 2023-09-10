@@ -101,7 +101,9 @@ void push_stack_list(stack_list* list, char new_name[])
     }
 }
 
-//We consider last inserted element in the list to be on position 0. So if we pop one element we will we remove the head.
+//We consider last inserted element in the list to be on position 0. 
+//If we pop one element we will we remove the head and make the head to point to the next element in the list.
+//If the list is empty we wil receive an error
 
 node_sl* pop_stack_list(stack_list* list)
 {
