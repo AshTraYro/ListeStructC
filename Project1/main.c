@@ -9,10 +9,59 @@
 #include "CircularDoublyLinkedList.h"
 #include "StackList.h"
 #include "QueueList.h"
+#include "BSTree.h"
 
 
 int main()
-{/*
+{
+    tree_list* new_tree = BT_create_tree_list_transversal();
+    BT_delete_tree_node(new_tree, "C");
+
+//bst_queue_list* list1 = malloc(sizeof(bst_queue_list));
+//bst_init_queue_list(list1);
+
+//bst_insert(new_tree, "XXX");
+bst_transversal_order(new_tree);
+printf("\n");
+tree_preorder(new_tree);
+printf("\n");
+tree_inorder(new_tree);
+printf("\n");
+tree_postorder(new_tree);
+printf("\n");
+
+
+printf("\nThe tree has %d nodes.", new_tree->nr_nodes);
+printf("\nThe tree has height of %d.", bst_find_height(new_tree));
+
+printf("\nMin valuie from tree is %s. ",bst_return_min_value(new_tree));
+printf("\nMax valuie from tree is %s. ", bst_return_max_value(new_tree));
+
+printf("\nMin valuie from tree is %s. ", BT_return_min_value(new_tree));
+printf("\nMax valuie from tree is %s. ", BT_return_max_value(new_tree));
+
+
+printf("\nroot>> %s", new_tree->root->name);
+printf("\nroot->left>> %s", new_tree->root->left->name);
+printf("\nroot->right>> %s", new_tree->root->right->name);
+printf("\nroot->left->left>> %s", new_tree->root->left->left->name);
+printf("\nroot->left->right>> %s", new_tree->root->left->right->name);
+printf("\nroot->right-left>> %s", new_tree->root->right->left->name);
+printf("\nroot->right->right>> %s", new_tree->root->right->right->name);
+
+BT_search(new_tree, "X");
+
+if(is_BT_BST(new_tree))
+printf("\nThe Tree list is a BST.");
+else
+printf("\nThe Tree list is NOT a BST.");
+
+
+bst_free(new_tree);
+new_tree = NULL;
+
+
+/*
     circular_doubly_linked_list* lista1 = malloc(sizeof(circular_doubly_linked_list));
     init_circular_doubly_linked_list(lista1);
     free_circular_doubly_linked_list(lista1);
@@ -114,8 +163,10 @@ int main()
     free(lista1);
     lista1 = NULL;*/
 
+//=====================================================================================================================
 
-    
+
+    /*
     linked_list* list_type_linked_list = malloc(sizeof(linked_list));
     init_linked_list(list_type_linked_list);
     doubly_linked_list* list_type_doubly_linked_list = malloc(sizeof(doubly_linked_list));
@@ -758,7 +809,7 @@ Quit_Program:
         free(list_type_stack_list);
         list_type_stack_list = NULL;
     }
-    
+    */
     _CrtDumpMemoryLeaks();
     return 0;
 }

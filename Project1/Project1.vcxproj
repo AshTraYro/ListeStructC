@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BSTree.c" />
     <ClCompile Include="CircularDoublyLinkedList.c" />
     <ClCompile Include="CircularLinkedList.c" />
     <ClCompile Include="DoublyLinkedList.c" />
@@ -148,6 +149,7 @@
     <ClCompile Include="StackList.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BSTree.h" />
     <ClInclude Include="CircularDoublyLinkedList.h" />
     <ClInclude Include="CircularLinkedList.h" />
     <ClInclude Include="DoublyLinkedList.h" />

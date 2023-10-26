@@ -158,8 +158,6 @@ node_ql* dequeue_queue_list(queue_list* list)
         list->front = list->front->next;
         list->size--;
         return p;
-
-
     }
 }
 
