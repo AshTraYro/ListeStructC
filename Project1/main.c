@@ -14,159 +14,7 @@
 
 int main()
 {
-    tree_list* new_tree = BT_create_tree_list_transversal();
-    BT_delete_tree_node(new_tree, "C");
-
-//bst_queue_list* list1 = malloc(sizeof(bst_queue_list));
-//bst_init_queue_list(list1);
-
-//bst_insert(new_tree, "XXX");
-bst_transversal_order(new_tree);
-printf("\n");
-tree_preorder(new_tree);
-printf("\n");
-tree_inorder(new_tree);
-printf("\n");
-tree_postorder(new_tree);
-printf("\n");
-
-
-printf("\nThe tree has %d nodes.", new_tree->nr_nodes);
-printf("\nThe tree has height of %d.", bst_find_height(new_tree));
-
-printf("\nMin valuie from tree is %s. ",bst_return_min_value(new_tree));
-printf("\nMax valuie from tree is %s. ", bst_return_max_value(new_tree));
-
-printf("\nMin valuie from tree is %s. ", BT_return_min_value(new_tree));
-printf("\nMax valuie from tree is %s. ", BT_return_max_value(new_tree));
-
-
-printf("\nroot>> %s", new_tree->root->name);
-printf("\nroot->left>> %s", new_tree->root->left->name);
-printf("\nroot->right>> %s", new_tree->root->right->name);
-printf("\nroot->left->left>> %s", new_tree->root->left->left->name);
-printf("\nroot->left->right>> %s", new_tree->root->left->right->name);
-printf("\nroot->right-left>> %s", new_tree->root->right->left->name);
-printf("\nroot->right->right>> %s", new_tree->root->right->right->name);
-
-BT_search(new_tree, "X");
-
-if(is_BT_BST(new_tree))
-printf("\nThe Tree list is a BST.");
-else
-printf("\nThe Tree list is NOT a BST.");
-
-
-bst_free(new_tree);
-new_tree = NULL;
-
-
-/*
-    circular_doubly_linked_list* lista1 = malloc(sizeof(circular_doubly_linked_list));
-    init_circular_doubly_linked_list(lista1);
-    free_circular_doubly_linked_list(lista1);
-    lista1 = create_circular_doubly_linked_list();
-    print_circular_doubly_linked_list(lista1);
-    node* p = lista1->head;
-
-    do
-    {
-        printf("\nAdresa elementului este: %p", &p);
-        printf("\nAdresa stocata in element este: %p", p);
-        printf("\nAdresa stocata in element->next este: %p", p->next);
-        printf("\nAdresa stocata in element->previous este: %p\n", p->previous);
-        p = p->next;
-    } while (p != lista1->head);
-
-    add_nth_elem_circular_doubly_linked_list(lista1, 3, "NOU");
-    print_circular_doubly_linked_list(lista1);
-    node* q = lista1->head;
-
-    do
-    {
-        printf("\nAdresa elementului este: %p", &q);
-        printf("\nAdresa stocata in element este: %p", q);
-        printf("\nAdresa stocata in element->next este: %p", q->next);
-        printf("\nAdresa stocata in element->previous este: %p\n", q->previous);
-        q = q->next;
-    } while (q != lista1->head);
-
-    node* rem = remove_node_circular_doubly_linked_list(lista1, 2);
-    printf("\nAdresa elementului scos este: %p", &rem);
-    printf("\nAdresa stocata in element scos este: %p", rem);
-    printf("\nAdresa stocata in element->next scos este: %p", rem->next);
-    printf("\nAdresa stocata in element->previous este: %p\n", rem->previous);
-
-    print_circular_doubly_linked_list(lista1);
-    node* r = lista1->head;
-    do
-    {
-        printf("\nAdresa elementului este: %p", &r);
-        printf("\nAdresa stocata in element este: %p", r);
-        printf("\nAdresa stocata in element->next este: %p", r->next);
-        printf("\nAdresa stocata in element->previous este: %p\n", r->previous);
-        r = r->next;
-    } while (r != lista1->head);
-
-    free_circular_doubly_linked_list(lista1);
-    free(lista1);
-    lista1 = NULL;
-    */
-
-    /*
-    circular_linked_list* lista1 = malloc(sizeof(circular_linked_list));
-    init_circular_linked_list(lista1);
-    free_circular_linked_list(lista1);
-    lista1 = create_circular_linked_list();
-    print_circular_linked_list(lista1);
-    node* p = lista1->head;
-   do
-    {
-        printf("\nAdresa elementului este: %p", &p);
-        printf("\nAdresa stocata in element este: %p", p);
-        printf("\nAdresa stocata in element->next este: %p", p->next);
-        //printf("\nAdresa stocata in element->previous este: %p\n", p->previous);
-        p = p->next;
-   } while (p != lista1->head);
-
-    add_nth_elem_circular_linked_list(lista1, 3, "NOU"); 
-    print_circular_linked_list(lista1);
-    node* q = lista1->head;
-
-    do
-    {
-        printf("\nAdresa elementului este: %p", &q);
-        printf("\nAdresa stocata in element este: %p", q);
-        printf("\nAdresa stocata in element->next este: %p", q->next);
-        //printf("\nAdresa stocata in element->previous este: %p\n", q->previous);
-        q = q->next;
-    } while (q != lista1->head);
-
-    node *rem = remove_node_circular_linked_list(lista1, 2);
-        printf("\nAdresa elementului scos este: %p", &rem);
-        printf("\nAdresa stocata in element scos este: %p", rem);
-        printf("\nAdresa stocata in element->next scos este: %p", rem->next);
-        //printf("\nAdresa stocata in element->previous este: %p\n", rem->previous);
-
-    print_circular_linked_list(lista1);
-    node* r = lista1->head;
-    do
-    {
-        printf("\nAdresa elementului este: %p", &r);
-        printf("\nAdresa stocata in element este: %p", r);
-        printf("\nAdresa stocata in element->next este: %p", r->next);
-        //printf("\nAdresa stocata in element->previous este: %p\n", r->previous);
-        r = r->next;
-    } while (r != lista1->head);
-
-    free_circular_linked_list(lista1);
-    free(lista1);
-    lista1 = NULL;*/
-
-//=====================================================================================================================
-
-
-    /*
+    
     linked_list* list_type_linked_list = malloc(sizeof(linked_list));
     init_linked_list(list_type_linked_list);
     doubly_linked_list* list_type_doubly_linked_list = malloc(sizeof(doubly_linked_list));
@@ -179,17 +27,21 @@ new_tree = NULL;
     init_stack_list(list_type_stack_list);
     queue_list* list_type_queue_list = malloc(sizeof(queue_list));
     init_queue_list(list_type_queue_list);
+    tree_list* new_tree = malloc(sizeof(tree_list));
+    bst_init_tree_list(new_tree);
 
     mainmenu:
     while(1)
     {
-        printf("\n\nYOU CAN DO MORE OPERATIONS WITH THE FOLLOWING TYPES OF LISTS:"
+        printf("\n\nYOU CAN DO DIFFERENT KIND OF OPERATIONS WITH THE FOLLOWING TYPES OF LISTS - CHOOSE A LIST:"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH LINKED LIST - type: LL>>"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH DOUBLY LINKED LIST - type: DLL>>"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH CIRCULAR LINKED LIST - type: CLL>>"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH CIRCULAR DOUBLY LINKED LIST - type: CDLL>>"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH STACK LIST - type: SL>>"
             "\n\t<<IF YOU WANT TO HAVE FUN WITH STACK LIST - type: QL>>"
+            "\n\t<<IF YOU WANT TO HAVE FUN WITH BINARY TREE - type: BT>>"
+            "\n\t<<IF YOU WANT TO HAVE FUN WITH BINARY SEARCH TREE - type: BST>>"
             "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
             "\n\t<<<<WHAT DO YOU WISH TO DO NEXT? >>>> ");
         char command[64];
@@ -229,6 +81,16 @@ new_tree = NULL;
         if (strcmp(command, "QL") == 0)
         {
             goto Queue_List;
+        }
+
+        if (strcmp(command, "BT") == 0)
+        {
+            goto BT_TREE;
+        }
+
+        if (strcmp(command, "BST") == 0)
+        {
+            goto BST_TREE;
         }
     }
 
@@ -774,6 +636,273 @@ Queue_List:
         }
     }
 
+BT_TREE:
+    while (1)
+    {
+        printf("\n\nYOU CAN DO THE FOLLOWING OPERATIONS WITH BINARY TREE:"
+            "\n\t<<CREATE A BINARY TREE - type: Create>>"
+            "\n\t<<INSERT A NEW NODE INTO BINARY TREE - ELEMENT WILL BE INSERTED AT THE FISRT AVAILABLE NULL NODE FROM UP TO BOTTOM AND LEFT TO RIGHT - type: Insert>>"
+            "\n\t<<DELETE A NODE FROM BINARY TREE - NODE WILL BE DELETED AND REPLACED WITH THE PRIORITY TO THE RIGHT NODE IF IS NOT NULL  - type: Delete>>"
+            "\n\t<<CHECK IF BINARY TREE IS A BINARY SEARCH TREE  - type: Check>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY TREE - in Transversal-Oreder(All leves from left to right) - type: Transversal>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY TREE - in Pre-Oreder(Data-Left-Right)  - type: Preorder>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY TREE - in In-Oreder(Left-Data-Right)  - type: Inorder>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY TREE - in Post-Oreder(Left-Right-Data)  - type: Postorder>>"
+            "\n\t<<SEARCH FOR A VALUE IN THE BINARY TREE  - type: Search>>"
+            "\n\t<<SHOW THE HEIGHT OF THE BINARY TREE  - type: Height>>"
+            "\n\t<<SHOW DIMENSION (NUMBER OF NODES) OF THE BINARY TREE - type: Dimension>>"
+            "\n\t<<DELETE THE BINARY TREE WILL RESULT A INITIALIZED TREE - type: Empty>>"
+            "\n\t<<DISPLAY THE MINIMUM VALUE FROM THE BINARY TREE - type: Min>>"
+            "\n\t<<DISPLAY THE MAXIMUM VALUE FROM THE BINARY TREE - type: Max>>"
+            "\n\t<<IF YOU WANT TO GO BACK TO MAIN MENU WITH LISTS - type: MainMenu>>"
+            "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
+            "\n\t<<<<WHAT DO YOU WISH TO DO WITH BINARY TREE? >>>> ");
+        char command[64];
+        fgets(command, sizeof(command), stdin);
+        command[strcspn(command, "\n")] = 0;
+
+        if (strcmp(command, "Quit") == 0)
+        {
+            goto Quit_Program;
+        }
+
+        if (strcmp(command, "MainMenu") == 0)
+        {
+            bst_free(new_tree);
+            free(new_tree);
+            new_tree = NULL;
+            goto mainmenu;
+        }
+
+        if (strcmp(command, "Create") == 0)
+        {
+            bst_free(new_tree);
+            free(new_tree);
+            new_tree = NULL;
+            new_tree = BT_create_tree_list_transversal();
+        }
+
+        if (strcmp(command, "Transversal") == 0)
+        {
+            bst_transversal_order(new_tree);
+        }
+
+        if (strcmp(command, "Preorder") == 0)
+        {
+            tree_preorder(new_tree);
+        }
+
+        if (strcmp(command, "Inorder") == 0)
+        {
+            tree_inorder(new_tree);
+        }
+
+        if (strcmp(command, "Postorder") == 0)
+        {
+            tree_postorder(new_tree);
+        }
+
+        if (strcmp(command, "Search") == 0)
+        {
+            char nume[32];
+            printf("\nENTER THE NAME FOR THE PERSON YOU WANT TO SEARCH IN BINARY TREE: ");
+            //scanf("%d", &varsta);
+            fgets(nume, sizeof nume, stdin);
+            nume[strcspn(nume, "\n")] = 0;
+            BT_search(new_tree, nume);
+        }
+
+        if (strcmp(command, "Insert") == 0)
+        {
+            char nume[32];
+            printf("\nENTER THE NAME FOR THE NEW PERSON IN BINARY TREE: ");
+            //scanf("%d", &varsta);
+            fgets(nume, sizeof nume, stdin);
+            nume[strcspn(nume, "\n")] = 0;
+            BT_insert_transversal(new_tree, nume);
+            printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE BINARY TREE TRANSVERSAL\n", nume);
+            
+        }
+
+        if (strcmp(command, "Delete") == 0)
+        {
+            char nume[32];
+            printf("\nENTER THE NAME FOR THE PERSON YOU WANT TO REMOVE FROM BINARY TREE: ");
+            //scanf("%d", &varsta);
+            fgets(nume, sizeof nume, stdin);
+            nume[strcspn(nume, "\n")] = 0;
+            BT_delete_tree_node(new_tree, nume);
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE BINARY TREE\n", nume);
+        }
+
+        if (strcmp(command, "Dimension") == 0)
+        {
+            printf("\nNUMBER OF THE NODES FROM THE BINARY TREE IS: %d", new_tree->nr_nodes);
+        }
+
+        if (strcmp(command, "Empty") == 0)
+        {
+            bst_free(new_tree);
+        }
+
+        if (strcmp(command, "Min") == 0)
+        {
+            if (new_tree->root->name == NULL || new_tree == NULL)
+            {
+                printf("\nTHE BINARY TREE IS EMPTY.");
+            }
+            else
+            {
+                printf("\nTHE MINIMUM VALUE NAME IN THE BINARY TREE IS %s.", BT_return_min_value(new_tree));
+            }
+        }
+
+        if (strcmp(command, "Max") == 0)
+        {
+            if (new_tree->root->name == NULL || new_tree == NULL)
+            {
+                printf("\nTHE BINARY TREE IS EMPTY.");
+            }
+            else
+            {
+                printf("\nTHE MAXIMUM VALUE NAME IN THE BINARY TREE IS %s.", BT_return_max_value(new_tree));
+            }
+        }
+    }
+
+BST_TREE:
+    while (1)
+    {
+        printf("\n\nYOU CAN DO THE FOLLOWING OPERATIONS WITH BINARY SEARCH TREE:"
+            "\n\t<<CREATE A BINARY SEARCH TREE - type: Create>>"
+            "\n\t<<INSERT A NEW NODE INTO BINARY SEARCH TREE -  - type: Insert>>"
+            "\n\t<<DELETE A NODE FROM BINARY SEARCH TREE - NODE WILL BE DELETED AND REPLACED WITH THE PRIORITY TO THE RIGHT NODE IF IS NOT NULL  - type: Delete>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY SEARCH TREE - in Transversal-Oreder(All leves from left to right) - type: Transversal>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY SEARCH TREE - in Pre-Oreder(Data-Left-Right)  - type: Preorder>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY SEARCH TREE - in In-Oreder(Left-Data-Right)  - type: Inorder>>"
+            "\n\t<<PRINT THE CONTENT OF BINARY SEARCH TREE - in Post-Oreder(Left-Right-Data)  - type: Postorder>>"
+            "\n\t<<SEARCH FOR A VALUE IN THE BINARY SEARCH TREE  - type: Search>>"
+            "\n\t<<SHOW THE HEIGHT OF THE BINARY SEARCH TREE  - type: Height>>"
+            "\n\t<<SHOW DIMENSION (NUMBER OF NODES) OF THE BINARY SEARCH TREE - type: Dimension>>"
+            "\n\t<<DELETE THE BINARY TREE WILL RESULT A INITIALIZED TREE - type: Empty>>"
+            "\n\t<<DISPLAY THE MINIMUM VALUE FROM THE BINARY SEARCH TREE - type: Min>>"
+            "\n\t<<DISPLAY THE MAXIMUM VALUE FROM THE BINARY SEARCH TREE - type: Max>>"
+            "\n\t<<IF YOU WANT TO GO BACK TO MAIN MENU WITH LISTS - type: MainMenu>>"
+            "\n\t<<IF YOU WANT TO QUIT - type: Quit>>"
+            "\n\t<<<<WHAT DO YOU WISH TO DO WITH BINARY TREE? >>>> ");
+        char command[64];
+        fgets(command, sizeof(command), stdin);
+        command[strcspn(command, "\n")] = 0;
+
+        if (strcmp(command, "Quit") == 0)
+        {
+            goto Quit_Program;
+        }
+
+        if (strcmp(command, "MainMenu") == 0)
+        {
+            bst_free(new_tree);
+            free(new_tree);
+            new_tree = NULL;
+            goto mainmenu;
+        }
+
+        if (strcmp(command, "Create") == 0)
+        {
+            bst_free(new_tree);
+            free(new_tree);
+            new_tree = NULL;
+            new_tree = BST_create_tree_list();
+        }
+
+        if (strcmp(command, "Transversal") == 0)
+        {
+            bst_transversal_order(new_tree);
+        }
+
+        if (strcmp(command, "Preorder") == 0)
+        {
+            tree_preorder(new_tree);
+        }
+
+        if (strcmp(command, "Inorder") == 0)
+        {
+            tree_inorder(new_tree);
+        }
+
+        if (strcmp(command, "Postorder") == 0)
+        {
+            tree_postorder(new_tree);
+        }
+
+        if (strcmp(command, "Search") == 0)
+        {
+            char nume[32];
+            printf("\nENTER THE NAME FOR THE PERSON YOU WANT TO SEARCH IN BINARY SEARCH TREE: ");
+            //scanf("%d", &varsta);
+            fgets(nume, sizeof nume, stdin);
+            nume[strcspn(nume, "\n")] = 0;
+            BST_search(new_tree, nume);
+        }
+
+        if (strcmp(command, "Insert") == 0)
+        {
+            char nume[32];
+            printf("\nENTER THE NAME FOR THE NEW PERSON IN BINARY SEARCH TREE: ");
+            //scanf("%d", &varsta);
+            fgets(nume, sizeof nume, stdin);
+            nume[strcspn(nume, "\n")] = 0;
+            bst_insert(new_tree, nume);
+            printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE BINARY SEARCH TREE\n", nume);
+
+        }
+
+        if (strcmp(command, "Delete") == 0)
+        {
+            char nume[32];
+            printf("\nENTER THE NAME FOR THE PERSON YOU WANT TO REMOVE FROM BINARY SEARCH TREE: ");
+            //scanf("%d", &varsta);
+            fgets(nume, sizeof nume, stdin);
+            nume[strcspn(nume, "\n")] = 0;
+            BST_delete_tree_node(new_tree, nume);
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE BINARY TREE\n", nume);
+        }
+
+        if (strcmp(command, "Dimension") == 0)
+        {
+            printf("\nNUMBER OF THE NODES FROM THE BINARY TREE IS: %d", new_tree->nr_nodes);
+        }
+
+        if (strcmp(command, "Empty") == 0)
+        {
+            bst_free(new_tree);
+        }
+
+        if (strcmp(command, "Min") == 0)
+        {
+            if (new_tree->root->name == NULL || new_tree == NULL)
+            {
+                printf("\nTHE BINARY TREE IS EMPTY.");
+            }
+            else
+            {
+                printf("\nTHE MINIMUM VALUE NAME IN THE BINARY TREE IS %s.", bst_return_min_value(new_tree));
+            }
+        }
+
+        if (strcmp(command, "Max") == 0)
+        {
+            if (new_tree->root->name == NULL || new_tree == NULL)
+            {
+                printf("\nTHE BINARY TREE IS EMPTY.");
+            }
+            else
+            {
+                printf("\nTHE MAXIMUM VALUE NAME IN THE BINARY TREE IS %s.", bst_return_max_value(new_tree));
+            }
+        }
+    }
+
 Quit_Program:
     if (list_type_linked_list != NULL)
     {
@@ -809,8 +938,8 @@ Quit_Program:
         free(list_type_stack_list);
         list_type_stack_list = NULL;
     }
-    */
-    _CrtDumpMemoryLeaks();
+    
+    //_CrtDumpMemoryLeaks();
     return 0;
 }
 

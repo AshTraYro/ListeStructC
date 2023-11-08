@@ -191,7 +191,7 @@ node_tree* insert_tree_node_transversal(node_tree* root, char new_name[])
     return root;
 }
 
-void bst_insert_transversal(tree_list* tree, char new_name[])
+void BT_insert_transversal(tree_list* tree, char new_name[])
 {
     tree->root = insert_tree_node_transversal(tree->root, new_name);
     tree->tree_height = bst_find_height(tree);
@@ -217,7 +217,7 @@ tree_list* BT_create_tree_list_transversal()
 
         fgets(name, sizeof name, stdin);
         name[strcspn(name, "\n")] = 0;
-        bst_insert_transversal(tree, name);
+        BT_insert_transversal(tree, name);
     }
 
     return tree;
@@ -439,6 +439,8 @@ void bst_free(tree_list* tree)
         free(current);
         current = NULL;
     }
+
+    bst_free_queue_list(lista);
 }
 
 char* bst_return_min_value(tree_list* tree)

@@ -2,8 +2,6 @@
 #define BSTREE_H
 #pragma once
 
-//
-
 typedef struct node_tree
 {
     char name[32];
@@ -66,7 +64,7 @@ void BST_search(tree_list* tree, char key[]);
 
 node_tree* insert_tree_node_transversal(node_tree* root, char new_name[]);
 
-void bst_insert_transversal(tree_list* tree, char new_name[]);
+void BT_insert_transversal(tree_list* tree, char new_name[]);
 
 tree_list* BT_create_tree_list_transversal();
 
