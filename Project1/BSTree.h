@@ -98,6 +98,8 @@ void node_postorder(node_tree* root);
 
 void tree_postorder(tree_list* tree);
 
+void bst_free_node(node_tree* root);
+
 void bst_free(tree_list* tree);
 
 char* bst_return_min_value(tree_list* tree);

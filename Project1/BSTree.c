@@ -356,8 +356,12 @@ int bst_find_height(tree_list* tree)
 
 void bst_transversal_order(tree_list* tree)
 {
-    if (tree->root == NULL) return;
-
+    if (tree->root == NULL)
+    {
+        printf("THE TREE IS EMPTY");
+        return;
+    }
+        
     bst_queue_list* lista = malloc(sizeof(bst_queue_list));
     bst_init_queue_list(lista);
 
@@ -421,26 +425,18 @@ void tree_postorder(tree_list* tree)
     node_postorder(tree->root);
 }
 
+void bst_free_node(node_tree* root)
+{
+    if (root == NULL) return;
+    bst_free_node(root->left);
+    bst_free_node(root->right);
+    free(root);    
+}
+
 void bst_free(tree_list* tree)
 {
-    if (tree->root == NULL) return;
-
-    bst_queue_list* lista = malloc(sizeof(bst_queue_list));
-    bst_init_queue_list(lista);
-
-    bst_enqueue_queue_list(lista, tree->root);
-
-    while (lista->front != NULL)
-    {
-        node_tree* current = bst_top_elem_queue_list(lista);
-        if (current->left != NULL) bst_enqueue_queue_list(lista, current->left);
-        if (current->right != NULL) bst_enqueue_queue_list(lista, current->right);
-        bst_dequeue_queue_list(lista);
-        free(current);
-        current = NULL;
-    }
-
-    bst_free_queue_list(lista);
+    bst_free_node(tree->root);
+    bst_init_tree_list(tree);
 }
 
 char* bst_return_min_value(tree_list* tree)

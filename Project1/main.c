@@ -27,8 +27,10 @@ int main()
     init_stack_list(list_type_stack_list);
     queue_list* list_type_queue_list = malloc(sizeof(queue_list));
     init_queue_list(list_type_queue_list);
-    tree_list* new_tree = malloc(sizeof(tree_list));
-    bst_init_tree_list(new_tree);
+    tree_list* new_tree_bt = malloc(sizeof(tree_list));
+    bst_init_tree_list(new_tree_bt);
+    tree_list* new_tree_bst = malloc(sizeof(tree_list));
+    bst_init_tree_list(new_tree_bst);
 
     mainmenu:
     while(1)
@@ -668,38 +670,46 @@ BT_TREE:
 
         if (strcmp(command, "MainMenu") == 0)
         {
-            bst_free(new_tree);
-            free(new_tree);
-            new_tree = NULL;
+            bst_free(new_tree_bt);
+            free(new_tree_bt);
+            new_tree_bt = NULL;
             goto mainmenu;
         }
 
         if (strcmp(command, "Create") == 0)
         {
-            bst_free(new_tree);
-            free(new_tree);
-            new_tree = NULL;
-            new_tree = BT_create_tree_list_transversal();
+            bst_free(new_tree_bt);
+            free(new_tree_bt);
+            new_tree_bt = NULL;
+            new_tree_bt = BT_create_tree_list_transversal();
+        }
+
+        if (strcmp(command, "Check") == 0)
+        {
+            if (is_BT_BST(new_tree_bt))
+                printf("\nIS BINARY SEARCH TREE");
+            else
+                printf("\nIS NOT BINARY SEARCH TREE");
         }
 
         if (strcmp(command, "Transversal") == 0)
         {
-            bst_transversal_order(new_tree);
+            bst_transversal_order(new_tree_bt);
         }
 
         if (strcmp(command, "Preorder") == 0)
         {
-            tree_preorder(new_tree);
+            tree_preorder(new_tree_bt);
         }
 
         if (strcmp(command, "Inorder") == 0)
         {
-            tree_inorder(new_tree);
+            tree_inorder(new_tree_bt);
         }
 
         if (strcmp(command, "Postorder") == 0)
         {
-            tree_postorder(new_tree);
+            tree_postorder(new_tree_bt);
         }
 
         if (strcmp(command, "Search") == 0)
@@ -709,7 +719,7 @@ BT_TREE:
             //scanf("%d", &varsta);
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
-            BT_search(new_tree, nume);
+            BT_search(new_tree_bt, nume);
         }
 
         if (strcmp(command, "Insert") == 0)
@@ -719,7 +729,7 @@ BT_TREE:
             //scanf("%d", &varsta);
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
-            BT_insert_transversal(new_tree, nume);
+            BT_insert_transversal(new_tree_bt, nume);
             printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE BINARY TREE TRANSVERSAL\n", nume);
             
         }
@@ -731,41 +741,46 @@ BT_TREE:
             //scanf("%d", &varsta);
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
-            BT_delete_tree_node(new_tree, nume);
+            BT_delete_tree_node(new_tree_bt, nume);
             printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE BINARY TREE\n", nume);
         }
 
         if (strcmp(command, "Dimension") == 0)
         {
-            printf("\nNUMBER OF THE NODES FROM THE BINARY TREE IS: %d", new_tree->nr_nodes);
+            printf("\nNUMBER OF THE NODES FROM THE BINARY TREE IS: %d", new_tree_bt->nr_nodes);
+        }
+
+        if (strcmp(command, "Height") == 0)
+        {
+            printf("\nHEIGHT OF THE BINARY TREE IS: %d", bst_find_height(new_tree_bt));
         }
 
         if (strcmp(command, "Empty") == 0)
         {
-            bst_free(new_tree);
+            bst_free(new_tree_bt);
         }
 
         if (strcmp(command, "Min") == 0)
         {
-            if (new_tree->root->name == NULL || new_tree == NULL)
+            if (new_tree_bt->root->name == NULL || new_tree_bt == NULL)
             {
                 printf("\nTHE BINARY TREE IS EMPTY.");
             }
             else
             {
-                printf("\nTHE MINIMUM VALUE NAME IN THE BINARY TREE IS %s.", BT_return_min_value(new_tree));
+                printf("\nTHE MINIMUM VALUE NAME IN THE BINARY TREE IS %s.", BT_return_min_value(new_tree_bt));
             }
         }
 
         if (strcmp(command, "Max") == 0)
         {
-            if (new_tree->root->name == NULL || new_tree == NULL)
+            if (new_tree_bt->root->name == NULL || new_tree_bt == NULL)
             {
                 printf("\nTHE BINARY TREE IS EMPTY.");
             }
             else
             {
-                printf("\nTHE MAXIMUM VALUE NAME IN THE BINARY TREE IS %s.", BT_return_max_value(new_tree));
+                printf("\nTHE MAXIMUM VALUE NAME IN THE BINARY TREE IS %s.", BT_return_max_value(new_tree_bt));
             }
         }
     }
@@ -801,38 +816,38 @@ BST_TREE:
 
         if (strcmp(command, "MainMenu") == 0)
         {
-            bst_free(new_tree);
-            free(new_tree);
-            new_tree = NULL;
+            bst_free(new_tree_bst);
+            free(new_tree_bst);
+            new_tree_bst = NULL;
             goto mainmenu;
         }
 
         if (strcmp(command, "Create") == 0)
         {
-            bst_free(new_tree);
-            free(new_tree);
-            new_tree = NULL;
-            new_tree = BST_create_tree_list();
+            bst_free(new_tree_bst);
+            free(new_tree_bst);
+            new_tree_bst = NULL;
+            new_tree_bst = BST_create_tree_list();
         }
 
         if (strcmp(command, "Transversal") == 0)
         {
-            bst_transversal_order(new_tree);
+            bst_transversal_order(new_tree_bst);
         }
 
         if (strcmp(command, "Preorder") == 0)
         {
-            tree_preorder(new_tree);
+            tree_preorder(new_tree_bst);
         }
 
         if (strcmp(command, "Inorder") == 0)
         {
-            tree_inorder(new_tree);
+            tree_inorder(new_tree_bst);
         }
 
         if (strcmp(command, "Postorder") == 0)
         {
-            tree_postorder(new_tree);
+            tree_postorder(new_tree_bst);
         }
 
         if (strcmp(command, "Search") == 0)
@@ -842,7 +857,7 @@ BST_TREE:
             //scanf("%d", &varsta);
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
-            BST_search(new_tree, nume);
+            BST_search(new_tree_bst, nume);
         }
 
         if (strcmp(command, "Insert") == 0)
@@ -852,7 +867,7 @@ BST_TREE:
             //scanf("%d", &varsta);
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
-            bst_insert(new_tree, nume);
+            bst_insert(new_tree_bst, nume);
             printf("\nPERSON WITH THE NAME %s HAS BEEN ADDED TO THE BINARY SEARCH TREE\n", nume);
 
         }
@@ -864,41 +879,46 @@ BST_TREE:
             //scanf("%d", &varsta);
             fgets(nume, sizeof nume, stdin);
             nume[strcspn(nume, "\n")] = 0;
-            BST_delete_tree_node(new_tree, nume);
-            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE BINARY TREE\n", nume);
+            BST_delete_tree_node(new_tree_bst, nume);
+            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE BINARY SEARCH TREE\n", nume);
         }
 
         if (strcmp(command, "Dimension") == 0)
         {
-            printf("\nNUMBER OF THE NODES FROM THE BINARY TREE IS: %d", new_tree->nr_nodes);
+            printf("\nNUMBER OF THE NODES FROM THE BINARY TREE IS: %d", new_tree_bst->nr_nodes);
+        }
+
+        if (strcmp(command, "Height") == 0)
+        {
+            printf("\nHEIGHT OF THE BINARY TREE IS: %d", bst_find_height(new_tree_bst));
         }
 
         if (strcmp(command, "Empty") == 0)
         {
-            bst_free(new_tree);
+            bst_free(new_tree_bst);
         }
 
         if (strcmp(command, "Min") == 0)
         {
-            if (new_tree->root->name == NULL || new_tree == NULL)
+            if (new_tree_bst->root->name == NULL || new_tree_bst == NULL)
             {
                 printf("\nTHE BINARY TREE IS EMPTY.");
             }
             else
             {
-                printf("\nTHE MINIMUM VALUE NAME IN THE BINARY TREE IS %s.", bst_return_min_value(new_tree));
+                printf("\nTHE MINIMUM VALUE NAME IN THE BINARY TREE IS %s.", bst_return_min_value(new_tree_bst));
             }
         }
 
         if (strcmp(command, "Max") == 0)
         {
-            if (new_tree->root->name == NULL || new_tree == NULL)
+            if (new_tree_bst->root->name == NULL || new_tree_bst == NULL)
             {
                 printf("\nTHE BINARY TREE IS EMPTY.");
             }
             else
             {
-                printf("\nTHE MAXIMUM VALUE NAME IN THE BINARY TREE IS %s.", bst_return_max_value(new_tree));
+                printf("\nTHE MAXIMUM VALUE NAME IN THE BINARY TREE IS %s.", bst_return_max_value(new_tree_bst));
             }
         }
     }
