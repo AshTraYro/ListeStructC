@@ -74,24 +74,24 @@ circular_linked_list* create_circular_linked_list()
 //If we add an element to a position greater than the number of elements we add the elemnt last in list.
 void add_nth_elem_circular_linked_list(circular_linked_list* list, int n, char new_name[])
 {
+    if (n < 0)
+    {
+        printf("\nA new element cannot be added in a negative position.\n");
+    }
+
     node_cll* newNode;
-    while (1) {
+    while (1)
+    {
         newNode = malloc(sizeof(node_cll));
-        if (newNode != NULL) {
+        if (newNode != NULL)
+        {
             break;
         }
     }
     newNode->next = NULL;
     strcpy_s(newNode->name, sizeof newNode->name, new_name);
 
-    if (n < 0)
-    {
-        printf("\nA new element cannot be added in a negative position.\n");
-        free(newNode);
-        newNode = NULL;
-    }
-
-    else if (list->head == NULL)
+    if (list->head == NULL)
     {
         list->head = newNode;
         newNode->next = list->head;
@@ -132,12 +132,6 @@ void add_nth_elem_circular_linked_list(circular_linked_list* list, int n, char n
 node_cll* remove_node_circular_linked_list(circular_linked_list* list, int n)
 {
     node_cll* p;
-    while (1) 
-    {
-        p = malloc(sizeof(node_cll));
-        if (p != NULL) 
-        {break;}
-    }
     p = list->head;
 
     if (p == NULL || list == NULL)
@@ -154,10 +148,10 @@ node_cll* remove_node_circular_linked_list(circular_linked_list* list, int n)
 
     else if (p->next == list->head)
     {
-        free(list->head);
         list->head = NULL;
         list->size--;
         return p;
+
     }
 
     else if (n == 0)
@@ -167,8 +161,9 @@ node_cll* remove_node_circular_linked_list(circular_linked_list* list, int n)
             p = p->next;
         }
         node_cll* temp = list->head;
-        p->next = list->head->next;
+        p->next = temp->next;
         list->head = list->head->next;
+        list->size--;
         return temp;
     }
 

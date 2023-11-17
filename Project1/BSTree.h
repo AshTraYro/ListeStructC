@@ -98,6 +98,10 @@ void node_postorder(node_tree* root);
 
 void tree_postorder(tree_list* tree);
 
+void print_node_tree(node_tree* root, int level);
+
+void print_tree(tree_list* tree, int level);
+
 void bst_free_node(node_tree* root);
 
 void bst_free(tree_list* tree);

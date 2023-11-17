@@ -425,18 +425,52 @@ void tree_postorder(tree_list* tree)
     node_postorder(tree->root);
 }
 
+void print_node_tree(node_tree* root, int level)
+{
+    if (root == NULL) {
+        return;
+    }
+
+   
+    printf("%s\n", root->name);
+
+    if (root->left != NULL) {
+        for (int i = 0; i < level; i++) {
+            printf(" ");
+        }
+        printf("/");
+        print_node_tree(root->left, level + 1);
+    }
+
+    if (root->right != NULL) {
+        for (int i = 0; i < level; i++) {
+            printf(" ");
+        }
+        printf("\\");
+        print_node_tree(root->right, level + 1);
+    }
+}
+
+void print_tree(tree_list* tree, int level)
+{
+    print_node_tree(tree->root, level);
+}
+
 void bst_free_node(node_tree* root)
 {
-    if (root == NULL) return;
-    bst_free_node(root->left);
-    bst_free_node(root->right);
-    free(root);    
+    if (root != NULL)
+    {
+        bst_free_node(root->left);
+        bst_free_node(root->right);
+        free(root);
+    }
 }
 
 void bst_free(tree_list* tree)
 {
     bst_free_node(tree->root);
     bst_init_tree_list(tree);
+    printf("The Tree has been deleted");
 }
 
 char* bst_return_min_value(tree_list* tree)

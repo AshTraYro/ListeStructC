@@ -14,7 +14,6 @@
 
 int main()
 {
-    
     linked_list* list_type_linked_list = malloc(sizeof(linked_list));
     init_linked_list(list_type_linked_list);
     doubly_linked_list* list_type_doubly_linked_list = malloc(sizeof(doubly_linked_list));
@@ -166,10 +165,12 @@ int main()
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_ll* removed = remove_node_linked_list(list_type_linked_list, poz);
-            if (removed)
-            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
-            free(removed);
-            removed = NULL;
+            if (removed != NULL)
+            {
+                printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
+                free(removed);
+                removed = NULL;
+            }
         }
 
         if (strcmp(command, "Dimension") == 0)
@@ -253,10 +254,12 @@ Doubly_Linked_List:
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_dll* removed = remove_node_doubly_linked_list(list_type_doubly_linked_list, poz);
-            if (removed)
-            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
-            free(removed);
-            removed = NULL;
+            if (removed != NULL)
+            {
+                printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
+                free(removed);
+                removed = NULL;
+            }
         }
 
         if (strcmp(command, "Dimension") == 0)
@@ -340,10 +343,14 @@ Circular_Linked_List:
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_cll* removed = remove_node_circular_linked_list(list_type_circular_linked_list, poz);
-            if (removed)
-            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
-            free(removed);
-            removed = NULL;
+            if (removed != NULL)
+            {
+                printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
+                free(removed);
+                removed = NULL;
+               
+            }
+            
         }
 
         if (strcmp(command, "Dimension") == 0)
@@ -427,10 +434,12 @@ Circular_Doubly_Linked_List:
             fgets(a, sizeof a, stdin);
             poz = atoi(a);
             node_cdll* removed = remove_node_circular_doubly_linked_list(list_type_circular_doubly_linked_list, poz);
-            if (removed)
-            printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
-            free(removed);
-            removed = NULL;
+            if (removed != NULL)
+            {
+                printf("\nPERSON WITH THE NAME %s HAS BEEN REMOVED FROM THE LIST\n", removed->name);
+                free(removed);
+                removed = NULL;
+            }
         }
 
         if (strcmp(command, "Dimension") == 0)
@@ -957,6 +966,20 @@ Quit_Program:
         free_stack_list(list_type_stack_list);
         free(list_type_stack_list);
         list_type_stack_list = NULL;
+    }
+
+    if (new_tree_bt != NULL)
+    {
+        bst_free(new_tree_bt);
+        free(new_tree_bt);
+        new_tree_bt = NULL;
+    }
+
+    if (new_tree_bst != NULL)
+    {
+        bst_free(new_tree_bst);
+        free(new_tree_bst);
+        new_tree_bst = NULL;
     }
     
     //_CrtDumpMemoryLeaks();
