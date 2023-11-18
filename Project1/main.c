@@ -120,8 +120,8 @@ int main()
         if (strcmp(command, "MainMenu") == 0)
         {
             free_linked_list(list_type_linked_list);
-            free(list_type_linked_list);
-            list_type_linked_list = NULL;
+            //free(list_type_linked_list);
+            //list_type_linked_list = NULL;
             goto mainmenu;
         }
 
@@ -209,8 +209,8 @@ Doubly_Linked_List:
         if (strcmp(command, "MainMenu") == 0)
         {
             free_doubly_linked_list(list_type_doubly_linked_list);
-            free(list_type_doubly_linked_list);
-            list_type_doubly_linked_list = NULL;
+            //free(list_type_doubly_linked_list);
+            //list_type_doubly_linked_list = NULL;
             goto mainmenu;
         }
 
@@ -298,8 +298,8 @@ Circular_Linked_List:
         if (strcmp(command, "MainMenu") == 0)
         {
             free_circular_linked_list(list_type_circular_linked_list);
-            free(list_type_circular_linked_list);
-            list_type_circular_linked_list = NULL;
+            //free(list_type_circular_linked_list);
+            //list_type_circular_linked_list = NULL;
             goto mainmenu;
         }
 
@@ -389,8 +389,8 @@ Circular_Doubly_Linked_List:
         if (strcmp(command, "MainMenu") == 0)
         {
             free_circular_doubly_linked_list(list_type_circular_doubly_linked_list);
-            free(list_type_circular_doubly_linked_list);
-            list_type_circular_doubly_linked_list = NULL;
+            //free(list_type_circular_doubly_linked_list);
+            //list_type_circular_doubly_linked_list = NULL;
             goto mainmenu;
         }
 
@@ -479,8 +479,8 @@ Stack_List:
         if (strcmp(command, "MainMenu") == 0)
         {
             free_stack_list(list_type_stack_list);
-            free(list_type_stack_list);
-            list_type_stack_list = NULL;
+            //free(list_type_stack_list);
+            //list_type_stack_list = NULL;
             goto mainmenu;
         }
 
@@ -568,8 +568,8 @@ Queue_List:
         if (strcmp(command, "MainMenu") == 0)
         {
             free_queue_list(list_type_queue_list);
-            free(list_type_queue_list);
-            list_type_queue_list = NULL;
+            //free(list_type_queue_list);
+            //list_type_queue_list = NULL;
             goto mainmenu;
         }
 
@@ -680,8 +680,8 @@ BT_TREE:
         if (strcmp(command, "MainMenu") == 0)
         {
             bst_free(new_tree_bt);
-            free(new_tree_bt);
-            new_tree_bt = NULL;
+            //free(new_tree_bt);
+            //new_tree_bt = NULL;
             goto mainmenu;
         }
 
@@ -826,8 +826,8 @@ BST_TREE:
         if (strcmp(command, "MainMenu") == 0)
         {
             bst_free(new_tree_bst);
-            free(new_tree_bst);
-            new_tree_bst = NULL;
+            //free(new_tree_bst);
+            //new_tree_bst = NULL;
             goto mainmenu;
         }
 
